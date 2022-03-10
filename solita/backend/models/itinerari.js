@@ -1,4 +1,4 @@
-const mongoose = require("mongoose") // va a almacenar los datos de las ciudades "cities"
+const mongoose = require("mongoose") 
 
 const itinerariesSchema = new mongoose.Schema ({
     city:{type:String,require:true},
@@ -9,6 +9,6 @@ const itinerariesSchema = new mongoose.Schema ({
     img:{type:String,require:true},
 })
 
-const Itinerario = mongoose.model("itineraries",itinerariesSchema)
+const Itinerary = mongoose.model("itineraries",itinerariesSchema)
 
-module.exports = Itinerario;
+module.exports = Itinerary;

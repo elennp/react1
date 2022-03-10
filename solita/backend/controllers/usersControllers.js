@@ -3,29 +3,30 @@ const bcryptjs = require("bcryptjs")
 const nodemailer = require("nodemailer")
 const crypto = require("crypto")
 const jwt = require("jsonwebtoken")
-// const { response } = require("express")
+
 
 
 async function sendEmail(email, uniqueText) {
 
     const transporter = nodemailer.createTransport({
 
-        host: "smtp.gmail.com", // protocolo de email (MPOP3)
+        host: "smtp.gmail.com", 
         port: 465,
         secure: true,
         auth: {
 
-            user: "mypruebaconsulta@gmail.com",
-            pass: process.env.NODEMAILER
+            user: 'probandoestomytinerario@gmail.com',
+            pass: "myKey1234"
         }
 
     })
 
-    const sender = "mypruebaconsulta@gmail.com"
+    const sender = "probandoestomytinerario@gmail.com"
     const mailOptions = {
         from: sender,
         to: email,
         subject: "MyTinerary: User e-mail verification",
+        /*
         html: ` <div style="margin: 8px; padding: 8px; background: #f8cd7c;">
                 <h1 style="color: #a0773a; font-family: Dancing Script; font-style: italic; font-size: 80px; text-align: center;">MyTinerary</h1>
                 </br>
@@ -36,18 +37,18 @@ async function sendEmail(email, uniqueText) {
                 <h6 style="color: #a0773a; font-size: 12px;text-align: center;">All Rights Reserved Copyright - 2022</h6>
                 <h6 style="color: #a0773a; font-size: 12px;text-align: center;"><i>powered by claudiodmguzman</i> </h6>
                 </div>
-                `
+                `*/
     }
     await transporter.sendMail(mailOptions, function (error, response) {
         if (error) { console.log(error) }
-        else { console.log("Message sent") }
+        else { console.log("Message send") }
     })
 }
 
 
 const usersControllers = {
 
-    verifyEmail: async (req, res) => { //es el controlador que recibe el click del usuario en el email
+    verifyEmail: async (req, res) => { 
         const { uniqueText } = req.params
         const user = await User.findOne({ uniqueText: uniqueText })
         if (user) {
@@ -62,26 +63,26 @@ const usersControllers = {
 
     nuevoUsuario: async (req, res) => {
 
-        const { firstName, lastName, email, password } = req.body.NuevoUsuario // destructuring
-
+        const { firstName, lastName, email, password } = req.body.NuevoUsuario 
+        console.log(req.body)
         try {
 
             const usuarioExiste = await User.findOne({ email })
-            console.log(req.body)
+           
             if (usuarioExiste) {
                 res.json({ success: "falseUE", response: "The user already exists, perform SignIn" })
             }
 
             else {
-                const uniqueText = crypto.randomBytes(15).toString("hex") //texto randon de 15 caracteres hexadecimal
+                const uniqueText = crypto.randomBytes(15).toString("hex") 
                 const emailVerificado = false
-                const passwordHash = bcryptjs.hashSync(password, 10)
+                const passwordHash = bcryptjs.hashSync(password, 6)
                 const NewUser = new User({
                     firstName,
                     lastName,
                     email,
                     password: passwordHash,
-                    uniqueText, //busca la coincidencia del texto
+                    uniqueText, 
                     emailVerificado,
                     connected:false,
                 })

@@ -1,16 +1,16 @@
 const Router = require("express").Router();
-const datosController = require("../controllers/datosControllers")
-const { ObtenerTodosLosDatos, ObtenerItinerario } = datosController // desestructuración del controlador de Ciudades
+const  citiesControllers= require("../controllers/datosControllers")
+const { ObtenerDatosCompletos, ObtenerItinerarios } = citiesControllers 
 const usersControllers = require("../controllers/usersControllers")
 const { nuevoUsuario, verifyEmail, accesoUsuario, cerrarCesion } = usersControllers
 const validator = require("../controllers/validator")
 
 
-Router.route("/datos") // "datos" parte de la url de la consulta
-    .get(ObtenerTodosLosDatos)
+Router.route("/datos") 
+    .get(ObtenerDatosCompletos)
 
 Router.route("/itinerarios/:city")
-    .get(ObtenerItinerario)
+    .get(ObtenerItinerarios)
 
 Router.route("/cardSignUp")
     .post(validator, nuevoUsuario)

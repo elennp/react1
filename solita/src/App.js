@@ -18,28 +18,20 @@ import axios from 'axios';
 
 
 function App() {
-const[cities,dispatch] = useStateValue()
+ 
 
-async function test(){}
-
-useEffect(()=> {
-  axios.get('http://localhost:4000/api/datos')
-  .then(...response=>
- dispatch({
-   type:actionType.CITIESDB,
-   cities:response.data.response.cities
- }))
-});
-
-
-const itinerary =[]
-axios.get('http://localhost:4000/api/itinerary')
-.then(response=>{
-  itinerary.push(...response.data.response.itinerary)
-
-},[])
-
-
+  
+  useEffect(()=>{
+    axios.get("http://localhost:4000/api/datos")
+    .then(response =>{
+      console.log (response)
+      
+  })
+  
+  }, [])
+   
+  
+   
 
 
 return (

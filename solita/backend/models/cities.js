@@ -10,10 +10,11 @@ const citiesSchema = new mongoose.Schema ({
     language:{type:String,require:true},
     continents:{type:String,require:true},
     region:{type:String,require:true},
+    demonym:{type:String,require:true},
     beststation:{type:String,require:true},
     image:{type:String,require:true},
 })
 
-const City = mongoose.model("cities",citiesSchema)
+const City = mongoose.model("Cities",citiesSchema)
 
 module.exports = City;
