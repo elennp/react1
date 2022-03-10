@@ -1,13 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { StateProvider } from './StateProvider';
+import reducer,{inicialState} from './reducer';
+
+
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+
+
+
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.StrictMode inicialState={inicialState} reducer={reducer}>
+    <StateProvider>
     <App />
+    </StateProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
