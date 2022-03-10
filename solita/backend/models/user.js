@@ -1,4 +1,4 @@
-const mongoose = require("mongoose") // va a almacenar los datos de las ciudades "cities"
+const mongoose = require("mongoose") 
 
 const usersSchema = new mongoose.Schema({
     firstName: { type: String, require: true },
