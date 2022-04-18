@@ -1,49 +1,53 @@
-@import url(//fonts.googleapis.com/css?family=Abril+Fatface|Droid+Serif:400,700,400italic,700italic);
-html,body{
-  height:50%
-}
+/* @import url(//fonts.googleapis.com/css?family=Abril+Fatface|Droid+Serif:400,700,400italic,700italic); */
+
 body {
-  background: linear-gradient(to bottom, rgba(0,5,10,0.4) 0%,rgba(0,0,0,0) 100%);
-  font-family: 'Droid Serif', serif;
+  /* background: rgb(2,0,36); */
+/* background color: #000; */
+  /* font-family: 'Droid Serif', serif; */
+  background-color: #1E1E1E;
 }
 .contenedor {
   padding: 4em;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+margin-bottom: 3em;
 }
 .blog-card {
   max-width: 450px;
   width:100%;
   height: 500px;
   position: relative;
-  font-family: 'Droid Serif', serif;
+  font-family: 'Pacifico', cursive;
   color:#fff;
   top: 30%;
   z-index: 1;
   right: 0;  
   left: 0;
-  margin: 0 auto;
+  margin: 1em;
   overflow: hidden;
   border-radius: 0px;
-  box-shadow: 0px 10px 20px -9px rgba(0, 0, 0, 0.5);
-  text-align: center;
+  box-shadow: 0px 10px 20px -9px rgba(252, 249, 249, 0.988);
+  text-align:justify;
   transition:all 0.4s;
   background: url(../cities/Brujas1.jpg) center no-repeat;
   background-size: 100%;
   
 }
 .blog-card .ruta{ 
-color:#fff;
+color:rgb(250, 9, 9);
   text-decoration:none;
   transition:all 0.2s
 }
 .blog-card .color-overlay {
-  background: rgba(64, 84, 94,0.5);
+  background: rgb(243, 247, 249);
   width: 550px;
   height: 500px;
   position: absolute;
   z-index: 10;
   top: 0;
   left: 0;
-  transition: background 0.3s cubic-bezier(0.33, 0.66, 0.66, 1);
+  transition:  0.3s cubic-bezier(0.33, 0.66, 0.66, 1);
 }
 .blog-card .gradient-overlay {  
   background-image: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.6) 21%);
@@ -55,7 +59,7 @@ color:#fff;
   z-index: 15;
 }
 .blog-card:hover{
-    box-shadow: 0px 18px 20px -9px rgba(0, 10, 30, 0.75);
+    box-shadow: 0px 18px 20px -9px #f82d2d;
 }
 .blog-card:hover .card-info {
   opacity: 1;
@@ -106,7 +110,7 @@ h3:after {
   height: 2px;
   margin: 20px auto;
   border: 0;
-  background: #BDA26B;
+  background: #f82d2d;
   transition:all 0.2s
 }
 
@@ -122,12 +126,12 @@ h3:after {
 .intro {
   width: 170px;
   margin: 0 auto;
-  color: #ddd;
+  color: #f82d2d;
   font-style: italic;
   line-height: 18px;
 }
 .intro .ruta,a{
-  color: #ddd
+  color: #f82d2d
 }
 .intro .ruta,a:hover{
   text-decoration:underline
@@ -152,14 +156,14 @@ h3:after {
   display:block;
   width:100px;
   margin:15px auto;
-  background:#fff;
-  color:#444;
+  background:rgb(10, 10, 10);
+  color:#f82d2d;
   padding:3px 10px;
   border-radius:2px;
   font-size:0.8em
 }
 .card-info .ruta:hover{
-  background: #8e7c49;
+  background: #f82d2d;
   color:#fff;
 }
 .card-info .ruta:hover span{
@@ -325,13 +329,13 @@ h3:after {
 
 .profile-links a[href*=nodws\.com]:before{
     content:"\2616";
-    color:#0a45b5;
+    color:#f82d2d;
     padding-right:3px
 }
 
 .profile-links a[href*=twitter]:before{
     content:"\1f426";
-    color:#08c
+    color:#f82d2d
 }
 
 .profile-links a[href*=dribbble]:before{
@@ -343,7 +347,7 @@ h3:after {
 }
 #follow-this-user{
     font-size:1.2em;
-    border-color:#359ef9
+    border-color:#f82d2d
 }
 #follow-this-user:after{
     content:"\1f448"

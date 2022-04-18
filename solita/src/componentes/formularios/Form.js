@@ -1,5 +1,5 @@
 import React from 'react'
-import '../formularios/form.css';
+import "../formularios/form.css";
 
 import { Link as LinkRouter } from 'react-router-dom';
 
@@ -8,7 +8,7 @@ function Form() {
 
 	return (
 
-		<div className="forms-section">
+		<div className="forms-section" >
 			<h1 className="section-title">My Tinerary</h1>
 			<div className="forms">
 				<div className="form-wrapper is-active">
@@ -34,7 +34,7 @@ function Form() {
 					</form>
 				</div>
 				<div >
-					Don't have an account?<LinkRouter to='/formu'>Sign Up</LinkRouter>
+					Don't have an account?<LinkRouter to='/Formu'>Sign Up</LinkRouter>
 				</div>
 
 			</div>

@@ -1,5 +1,5 @@
 const mongoose = require("mongoose"); 
-// import { Link, Link as Linkrouter } from 'react-router-dom';
+
 
 
 const citiesSchema = new mongoose.Schema ({
@@ -15,6 +15,6 @@ const citiesSchema = new mongoose.Schema ({
     image:{type:String,require:true},
 })
 
-const City = mongoose.model("Cities",citiesSchema)
+const City = mongoose.model("cities",citiesSchema)
 
 module.exports = City;

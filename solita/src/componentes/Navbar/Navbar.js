@@ -7,7 +7,7 @@ import Logo from '../../Saved Pictures/logo.jpg';
 function Navbar() {
   return (
 
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         
           <img src={Logo } width="70" />

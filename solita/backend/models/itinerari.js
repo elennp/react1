@@ -1,6 +1,6 @@
 const mongoose = require("mongoose") 
 
-const itinerariesSchema = new mongoose.Schema ({
+const itinerarySchema = new mongoose.Schema ({
     city:{type:String,require:true},
     name:{type:String,require:true},
     description:{type:String,require:true},
@@ -9,6 +9,6 @@ const itinerariesSchema = new mongoose.Schema ({
     img:{type:String,require:true},
 })
 
-const Itinerary = mongoose.model("itineraries",itinerariesSchema)
+const Itinerary = mongoose.model("itineraries",itinerarySchema)
 
 module.exports = Itinerary;

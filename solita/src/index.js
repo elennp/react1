@@ -9,13 +9,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 
-
-
-
-
 ReactDOM.render(
-  <React.StrictMode inicialState={inicialState} reducer={reducer}>
-    <StateProvider>
+  <React.StrictMode> 
+    <StateProvider inicialState={inicialState} reducer={reducer}>
     <App />
     </StateProvider>
   </React.StrictMode>,

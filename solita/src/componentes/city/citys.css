@@ -1,36 +1,51 @@
-body{
-    
 
-
-
-}
 h1{
     text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Pacifico', cursive;
     font-weight: bold;
-    font-size: 40px;
-    color: #fff;
-    text-shadow: 0 1px 0 #ddd, 0 2px 0 #ccc,0 3px 0 #bbb,0 4px 0 #aaa,0 5px 0 #acacac, 0 6px 1px rgba(0,0,0,0.1), 0 0 5px rgba(0,0,0,0.3), 0 1px 3px rgba(0,0,0,0.3), 0 3px 5px rgba(0,0,0,0.2), 0 5px 10px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.2), 0 20px 20px rgba(0,0,0,0.15);
+    font-size: 60px;
+    color: rgb(250, 244, 244);
+    text-shadow: 2px 2px 5px rgb(250, 47, 29);
     padding: 2em;
 }
 
 
-.container1 img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 70%;
-    height: 40%;
+.container1 img  {
+     display:block contents;
+    padding: 3em;
+    margin-left: 10em;
+    margin-right: 3em;
+    width: 60%;
+    height: 20%;
     opacity: 0.8;
     filter: alpha(opacity=80); 
     border-radius: 10px;
-    box-shadow: 2px 2px 5px black;
+    box-shadow: 3px 3px 7px 5px rgb(252, 16, 16); 
+    font-family: 'Pacifico', cursive;
+    
+     
+    
+    
 }
+.overflow {
+    overflow: hidden;
+  }
+  
+  .container1 img top {
+    transform: scale(1);
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .imtop:hover {
+    transform: scale(1.1);
+    transition: all 0.2s ;
+    border-radius: 5px;
+  }
 
 .container1 p {
     padding: 4em;
     font-size: 20px;
-    text-shadow: 1px 1px 3px black;
+    text-shadow: 1px 1px 3px rgb(236, 233, 233);
     text-align: justify;
 
 }

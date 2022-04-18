@@ -4,10 +4,43 @@
 
 .text {
     text-align: center;
-    font-weight: bold;
+    font-weight: 500;
     font-family: 'fantasy';
     font-style: italic;
     color:aliceblue;
+    
+
+}
+ /* .teim {
+    
+    background:url('../carusel/Travel1.jpg');
+    width: 50%;
+	 height: 300px;
+	 object-fit:none;
+	 background-repeat: no-repeat;
+  background-position:  left;
+  background-size: cover;
+    
+}  */
+.text h3 {
+    position: relative; border: 2px ; width: 200px;
+    font-family:'Pacifico', cursive;
+    text-align: center;
+    letter-spacing: 3px;
+    position: relative;
+    word-spacing: 5px;    
+
+}
+.text h4 {
+    
+    font-family:'Pacifico', cursive;
+    font-size: x-large; 
+    font-weight: 500;
+    text-align: left;
+    letter-spacing: 4px;
+    word-spacing: 3px; 
+    padding: 2em;
+    position: relative;
 }
 
 .slides {
