@@ -108,7 +108,7 @@ const usersControllers = {
                     }
                     else{res.json({success:false,from:"controller",error:"El usuario y/o contraseña son incorrectos"})}
                 }
-                else{res.json({success:false,from:"controller",error:"hola por favor verifica tu email para validarlo"})}
+                else{res.json({success:false,from:"controller",error:"Hola por favor verifica tu email para validarlo"})}
             }
         }
         catch(error){console.log(error);res.json({success:false,response:null,error:error})}
