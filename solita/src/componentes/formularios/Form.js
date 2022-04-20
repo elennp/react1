@@ -34,7 +34,7 @@ function Form() {
 					</form>
 				</div>
 				<div >
-					Don't have an account?<LinkRouter to='/Formu'>Sign Up</LinkRouter>
+					Don't have an account?<LinkRouter to='/formu'>Sign Up</LinkRouter>
 				</div>
 
 			</div>

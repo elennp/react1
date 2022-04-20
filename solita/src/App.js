@@ -53,8 +53,8 @@ return (
    <Route path='/' element={<Home/>} />
    <Route path='/cities' element={<CitiesPadre/>} />
    <Route path='/city/:id' element={<Linki/>} />
-   <Route path='/Form' element={<Form/>} />
-   <Route path='/Formu' element={<Formu/>} />
+   <Route path='/form' element={<Form/>} />
+   <Route path='/formu' element={<Formu/>} />
   
    </Routes>
    <Footer/>

@@ -44,7 +44,7 @@ const usersControllers = {
       if (user) {
           user.emailVerificado=true
           await user.save()
-          res.redirect("http://localhost:3000/Form")
+          res.redirect("http://localhost:3000/form")
 
       }else{
           res.json({success:false,response:"su email no se a podido verificar"})
@@ -55,7 +55,7 @@ const usersControllers = {
         const { name,email, password } = req.body.NuevoUsuario
            console.log(req.body)
         try {
-            const UsuarioExiste = await User.findOne({ name })
+            const UsuarioExiste = await User.findOne({ email })
             if (UsuarioExiste) {
                 res.json({ success: 'falseUE', response: "El usuario que intenta registrar ya existe te invitamos a realizar SingIn" })
             }
