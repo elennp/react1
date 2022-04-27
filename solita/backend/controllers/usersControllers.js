@@ -69,9 +69,11 @@ const usersControllers = {
                     password: passwordHash,
                     uniqueText,
                     emailVerificado,
+                    connected:false,
                     
                 })
                 if (!emailVerificado){
+                    
                     await NewUser.save()
                     await sendEmail(email,uniqueText)
                     res.json({ success: 'trueUE', response: "hemos enviado un correo electronico para verificar su email" })
@@ -98,13 +100,25 @@ const usersControllers = {
                     let passwordCoincide = bcryptjs.compareSync(password,usuario.password)
                     
                     if (passwordCoincide){
-                      const token = jwt.sign({...usuario},process.env.SECRETKEY)
-                      const datosUser= {
-                          name:usuario.name,
-                          email:usuario.email,
-                      }  
-                      await usuario.save()
-                      response.json({success:true,from:"controller",response:{token,datosUser}})
+                     
+                     const datosUser = {
+                         name:usuario.name,
+                         email:usuario.email,
+                         id:usuario._id,
+                     };
+                     
+                     
+                      usuario.connected=true  
+                      await usuario.save();
+                      
+                   
+                      const token = jwt.sign({...usuario},process.env.SECRETKEY,{expiresIn:60*60*24});
+                      res.json( {
+                          success: true,
+                          from: "controller",
+                          
+                          response: { token, ...datosUser},message:"Again"+ ""+usuario.name})
+                      
                     }
                     else{res.json({success:false,from:"controller",error:"El usuario y/o contraseña son incorrectos"})}
                 }
@@ -112,7 +126,34 @@ const usersControllers = {
             }
         }
         catch(error){console.log(error);res.json({success:false,response:null,error:error})}
-    }
+    },
+    cerrarSesion: async(req,res) => {
+        const email= req.body.email
+        console.log(req.body.email)
+        
+        const user = await User.findOne({email})
+        user.connected=false
 
+        await user.save()
+        response.json({success:true,response:'sesion cerrada'})
+
+    },
+    verificarToken: async(req,res)=>{
+        
+        if (!req.error) {
+           res.json({success:true,
+               respuesta:{
+               name:req.user.name,
+               email:req.user.email,
+               id:req.user.id,
+            },
+            response:"Bienvenido " + req.user.firstname}) 
+            
+        }else{
+            res.json({
+             success:false,response:"Por favor ingrese nuevamente"
+            })
+        }
+    }
 }
 module.exports = usersControllers;
