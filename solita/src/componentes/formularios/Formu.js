@@ -19,14 +19,14 @@ function Formu() {
             name: event.target[1].value,
             email: event.target[2].value,
             password: event.target[3].value,
-            from: "Formu",
+            
         }; 
 
         await axios.post("http://localhost:4000/api/singup", { NuevoUsuario })
             .then
-            (response => console.log(response))
+            (response => console.log(response));
 
-                // displayMessages(response.data));
+                //  displayMessages(response.data));
 
         function displayMessages(data) {
             if (data.success === 'falseVAL') {
@@ -43,10 +43,6 @@ function Formu() {
         }
 
     }
-
-
-
-
 
     return (
         <div className="forms-section">
@@ -67,11 +63,11 @@ function Formu() {
                             <input id="signup-name" type="name" required />
                         </div>
                         <div className="input-block">
-                            <label for="signup-email">Password</label>
+                            <label for="signup-email">Email</label>
                             <input id="signup-email" type="email" required />
                         </div>
                         <div className="input-block">
-                            <label for="signup-password">Confirm password</label>
+                            <label for="signup-password">Password</label>
                             <input id="signup-password" type="password" required />
                         </div>
                     </fieldset>
