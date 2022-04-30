@@ -3,20 +3,26 @@ import React from "react";
 import { Link as LinkRouter } from "react-router-dom";
 import Logo from '../../Saved Pictures/logo.jpg';
 import { useStateValue } from "../../StateProvider";
+import { actionType } from '../../reducer';
 
 
 
 function Navbar() {
   
-  const user= useStateValue
+  const [{user},dispatch]= useStateValue()
+  console.log(user)
   async function cerrarSesion() {
     
-    const email= user.datosUser.email
+    const email= user.email
     await axios.post("http://localhost:4000/api/signOut",{email})
     .then(response =>
 
      console.log(response)
     )
+    dispatch({
+      type: actionType.USER,
+      user: null
+    })
   }
   
   
@@ -40,12 +46,12 @@ function Navbar() {
               Cities
             </LinkRouter>
             {!user?
-              <LinkRouter to= "/form" className="nav-link">SignUp</LinkRouter>
-              
-              : <div className="nav-link" onClick={() => cerrarSesion()}>SignOut</div>
-            }
+              (<div><LinkRouter to= "/form" className="nav-link">SignUp</LinkRouter>
               <LinkRouter to= "/form" className="nav-link">
-              Signin</LinkRouter>
+              Signin</LinkRouter></div>
+              ): <button className="nav-link" onClick={() => cerrarSesion()}>SignOut</button>
+            }
+              
                
               
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link as LinkRouter } from 'react-router-dom';
+import GoogleLogin from 'react-google-login';
 import "../formularios/form.css";
 import axios from 'axios';
 // import { actionType } from '../reducer';
@@ -12,6 +13,20 @@ import axios from 'axios';
 
 function Formu() {
 
+    const responseGoogle = async (response) => {
+		console.log(response);
+
+      const NuevoUsuario = {
+          name : response.profileObj.givenName,
+          email : response.profileObj.email,
+          password : response.googleId + "Ab",
+          google:true
+      }  
+      await axios.post("http://localhost:4000/api/singup", { NuevoUsuario })
+            .then
+            (response => console.log(response));
+	}
+
     async function NuevUsuario(event) {
         event.preventDefault()
 
@@ -19,6 +34,7 @@ function Formu() {
             name: event.target[1].value,
             email: event.target[2].value,
             password: event.target[3].value,
+            google:false
             
         }; 
 
@@ -74,6 +90,12 @@ function Formu() {
                     <button type="submit" className="btn-signup">Continue</button>
                 </form>
             </div>
+            <GoogleLogin
+					clientId="971845975096-d96pfrveho1431brgjcu4m4a2leibuei.apps.googleusercontent.com"
+					buttonText="SignIn with Google Account"
+					onSuccess={responseGoogle}
+					onFailure={responseGoogle}
+					cookiePolicy={'single_host_origin'} />
             <div >Already have an account?<LinkRouter to='/form'>Sign In</LinkRouter></div>
         </div>
     );

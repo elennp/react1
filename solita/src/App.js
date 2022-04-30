@@ -18,7 +18,7 @@ import Linki from './componentes/city/Linki';
 
 function App() {
  /* const data =[]*/
-  const[cities,dispatch]=useStateValue()
+  const[{cities},dispatch]=useStateValue()
   async function test(){}
   
    useEffect(()=> {  
@@ -30,7 +30,22 @@ function App() {
     dispatch({ type:actionType.CITIESDB,
       cities:response.data.response.cities})
      
-    })    
+    }) 
+    if (localStorage.getItem("token")!==null){
+      const token= localStorage.getItem("token")
+      axios.get("http://localhost:4000/api/auth/signinToken",{
+        headers:{
+          "Authorization":"Bearer "+token
+        }
+      })
+      .then(user=>{
+        console.log(user)
+      dispatch({
+        type: actionType.USER,
+        user: user.data.respuesta
+      }) 
+    })
+    }   
  },[])
  
  

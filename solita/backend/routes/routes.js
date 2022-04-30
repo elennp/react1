@@ -1,9 +1,9 @@
 const Router = require("express").Router();
 const datosController = require("../controllers/datosControllers");
-
+const passport = require("../config/Passport")
 const { ObtenerDatos, ObtenerItinerarios } = datosController
 const usersControllers = require("../controllers/usersControllers")
-const { nuevoUsuario, verifyEmail,accesoUsuario,cerrarSesion} = usersControllers
+const { nuevoUsuario, verifyEmail,accesoUsuario,cerrarSesion,verificarToken} = usersControllers
 const validator = require('../controllers/validator')
 
 
@@ -27,5 +27,8 @@ Router.route("/singin")
 
  Router.route("/signOut")
      .post(cerrarSesion)
+
+     Router.route("/auth/signinToken")
+     .get(passport.authenticate("jwt",{session:false}),verificarToken)
 
 module.exports = Router

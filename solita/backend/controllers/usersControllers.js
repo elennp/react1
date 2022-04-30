@@ -3,10 +3,11 @@ const crypto = require('crypto')
 const User = require('../models/user.js')
 const bcryptjs = require('bcryptjs')
 const jwt = require("jsonwebtoken")
-const { response } = require('express')
+
 
 async function sendEmail(email,uniqueText){
-
+    console.log(email)
+    console.log(uniqueText)
     const transporter = nodemailer.createTransport({
      host:'smtp.gmail.com',
      port: 465,
@@ -52,14 +53,32 @@ const usersControllers = {
     },
     nuevoUsuario: async (req, res) => {
 
-        const { name,email, password } = req.body.NuevoUsuario
-           console.log(req.body)
+        const { name,email, password,google } = req.body.NuevoUsuario
+          
         try {
             const UsuarioExiste = await User.findOne({ email })
+            console.log(UsuarioExiste)
             if (UsuarioExiste) {
-                res.json({ success: 'falseUE', response: "El usuario que intenta registrar ya existe te invitamos a realizar SingIn" })
+                
+           
+             
+                if(google){
+                    const passwordHash = bcryptjs.hashSync(password, 10)
+                    UsuarioExiste.password=passwordHash;
+                    UsuarioExiste.emailVerificado=true
+                    UsuarioExiste.google=true
+                    UsuarioExiste.connected= false
+                    UsuarioExiste.save()
+                    res.json({success:true,from:"google",response:"Actualizamos tu signin para que lo realices con google"})  
+                }
+                else{
+                  res.json({success:false,from:"signUp",response:"Este email ya esta en uso,realice signin"})  
+                
+             }
             }
-            else {
+            else{
+
+
                 const emailVerificado =false
                 const uniqueText= crypto.randomBytes(15).toString('hex')
                 const passwordHash = bcryptjs.hashSync(password, 10)
@@ -72,26 +91,37 @@ const usersControllers = {
                     connected:false,
                     
                 })
-                if (!emailVerificado){
-                    
+
+                if(google){
+                    NewUser.emailVerificado = true,
+                    NewUser.google = true,
+                    NewUser.connected = false,
+                    await NewUser.save()
+                    res.json({success:true,from:"google",response:"felicidades hemos creado tu usuario con google",data:{nuevoUsuario}})
+                }
+                else {
+                    NewUser.emailVerificado = false
+                    NewUser.google= false
+                    NewUser.connected= false
                     await NewUser.save()
                     await sendEmail(email,uniqueText)
-                    res.json({ success: 'trueUE', response: "hemos enviado un correo electronico para verificar su email" })
+                    res.json({ success:'true', from:"signUp", response: "hemos enviado un correo electronico para verificar su email", data:{nuevoUsuario} })
 
                }
 
             }
             
         }
-        catch (error) { res.json({ success: 'falseUE', response: null, error: error }) }
+        catch (error) { res.json({ success: 'false', from:'signUp', response: null, error: error }) }
 
     },
-     accesoUsuario:async (req,res) =>{
+     accesoUsuario: async (req,res) =>{
+         console.log(req.body)
         const{email,password} = req.body.userData
-
+     
         try{
             const usuario= await User.findOne({email})
-
+            console.log(usuario)
             if(!usuario){
                 res.json({success:false,from:"controller",error:"El usuario y/o contraseña son incorrectas"})
             }
@@ -108,11 +138,11 @@ const usersControllers = {
                      };
                      
                      
-                      usuario.connected=true  
+                       
                       await usuario.save();
                       
                    
-                      const token = jwt.sign({...usuario},process.env.SECRETKEY,{expiresIn:60*60*24});
+                      const token = jwt.sign({...datosUser},process.env.SECRETKEY,{expiresIn:60*60*24});
                       res.json( {
                           success: true,
                           from: "controller",
@@ -132,28 +162,28 @@ const usersControllers = {
         console.log(req.body.email)
         
         const user = await User.findOne({email})
-        user.connected=false
+        
 
         await user.save()
-        response.json({success:true,response:'sesion cerrada'})
+        res.json({success:true,response:'sesion cerrada'})
 
     },
-    verificarToken: async(req,res)=>{
+     verificarToken: async(req,res)=>{
         
-        if (!req.error) {
-           res.json({success:true,
-               respuesta:{
-               name:req.user.name,
-               email:req.user.email,
-               id:req.user.id,
-            },
+         if (!req.error) {
+            res.json({success:true,
+                respuesta:{
+            name:req.user.name,
+            email:req.user.email,
+                id:req.user.id,
+             },
             response:"Bienvenido " + req.user.firstname}) 
             
-        }else{
-            res.json({
-             success:false,response:"Por favor ingrese nuevamente"
+         }else{
+             res.json({
+          success:false,response:"Por favor ingrese nuevamente"
             })
-        }
-    }
+         }
+     }
 }
 module.exports = usersControllers;

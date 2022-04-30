@@ -14,17 +14,19 @@
              'string.email':'correo no valido',
          }),
 
-         password:joi.string().max(20).min(6).trim().pattern(/(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])/).required().messages({
+         password:joi.string().max(30).min(6).trim().pattern(/(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])/).required().messages({
              "string.pattern.base":"La contraseña debe contener minimo una mayuscula, una minuscula y un numero",
              "string.min":"La contraseña debe contener minimo 6 caracteres alfanumericos",
              "string.max":"La contraseña no debe exceder de 30 caracteres alfanumericos"
-          }),
+         
+            }),
+        google:joi.boolean()    
           
 
      });
      const validation = Shema.validate(req.body.NuevoUsuario,{abortEarly:false})
      if(validation.error){
-         return res.json({success:'falseVAL',response:validation})
+         return res.json({success:false,response:validation})
      }
      next()
 

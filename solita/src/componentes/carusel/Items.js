@@ -10,6 +10,7 @@ import Imagen from './Amsterd.jpg';
 import Imgen from './Baires.jpg';
 import Im from '../carusel/Estocolmo.jpg';
 import Iman from '../carusel/Travel1.jpg';
+import Git from '../carusel/water.gif';
 import './items.css';
 
 
@@ -23,6 +24,9 @@ const Items = () => {
       <div className='text'>
         <h1>MYTINERARY</h1>
         <h3>The travel blog that leads you to fulfill your dreams of traveling and discovering the best places in the world</h3>
+        <div className='gif'>
+        <img src={Git} alt= " " />
+        </div>
         <div className='teim'></div>
         <h4>We were born with the dream of offering travelers all our experience and capacity in the area, providing a high quality service and adapting to today's demands.If your desire is to live wonderful moments, trust us and get ready to enjoy unforgettable trips.</h4>
 
