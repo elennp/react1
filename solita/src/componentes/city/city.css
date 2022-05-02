@@ -32,7 +32,7 @@
 .cardy .card-body h4,h6 {
   color: rgb(17, 16, 16);
   text-align: center;
-  text-shadow: 2px 2px 5px rgb(250, 47, 29);
+  text-shadow: 2px 2px 5px #f6e70a;
   font-family: 'Pacifico', cursive;
   font-weight: 800;
   
@@ -46,8 +46,8 @@
 	
 }
 .cardy ul li {
-	background-color: rgb(246, 8, 8);
-	color: aliceblue;
+	background-color: #f6e70a;
+	color: rgb(20, 20, 20);
 	font-family: 'Pacifico', cursive;
 	font-weight: 800;
 	box-shadow: 3px 0px 7px whitesmoke;

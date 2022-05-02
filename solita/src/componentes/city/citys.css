@@ -5,7 +5,7 @@ h1{
     font-weight: bold;
     font-size: 60px;
     color: rgb(250, 244, 244);
-    text-shadow: 2px 2px 5px rgb(250, 47, 29);
+    text-shadow:  3px 3px 7px 5px #f6e70a;
     padding: 2em;
 }
 
@@ -20,7 +20,7 @@ h1{
     opacity: 0.8;
     filter: alpha(opacity=80); 
     border-radius: 10px;
-    box-shadow: 3px 3px 7px 5px rgb(252, 16, 16); 
+    box-shadow: 3px 3px 7px 5px #f6e70a; 
     font-family: 'Pacifico', cursive;
     
      

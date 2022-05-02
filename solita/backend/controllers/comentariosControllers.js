@@ -1,79 +1,79 @@
-// const nodemailer = require("nodemailer")
-// const crypto = require("crypto")
-// const Comments = require("../models/comment")
-// const bcryptjs = require("bcryptjs")
-// const jwt = require("jsonwebtoken")
+const nodemailer = require("nodemailer")
+const crypto = require("crypto")
+const Comments = require("../models/comment")
+const bcryptjs = require("bcryptjs")
+const jwt = require("jsonwebtoken")
 
-// const commentControllers = {
+const commentControllers = {
 
-//     cargarComentarios: async (req, res) => {
+    cargarComentarios: async (req, res) => {
 
-//         const { itinerario, mensaje, user } = req.body.dataComments;
-//         console.log(req.body.dataComments)
+        const { itinerario, mensaje, user } = req.body.dataComments;
+        console.log(req.body.dataComments)
 
-//         new Comments({
+        new Comments({
 
-//             itinerario: itinerario,
-//             user: user,
-//             comment: mensaje
-//         }).save()
+            itinerario: itinerario,
+            user: user,
+            comment: mensaje
+        }).save()
 
-//         let comentario
+        let comentario
        
-//         try {
-//             comentario = await Comments.find({ itinerario: itinerario }).populate("user")
-//         } catch (error) {
-//             console.log(error)
-//         }
-//         res.json({ succes: true, response: {comentario }, message:"Your message has been sent"})
+        try {
+            comentario = await Comments.find({ itinerario: itinerario }).populate("user")
+        } catch (error) {
+            console.log(error)
+        }
+        res.json({ succes: true, response: {comentario }, message:"Your message has been sent"})
 
-//     },
-//     obtenerComentarios: async (req, res) => {
-//         console.log(req.body)
-//         let id = req.params.id;
+    },
+    obtenerComentarios: async (req, res) => {
+        console.log(req.body)
+        let id = req.params.id;
 
-//         let comentario
+        let comentario
         
-//         try {
-//             comentario = await Comments.find({ itinerario: id }).populate("user")
-//         } catch (error) {
-//             console.log(error)
-//         }
-//         res.json({ succes: true, response: { comentario } })
+        try {
+            comentario = await Comments.find({ itinerario: id }).populate("user")
+        } catch (error) {
+            console.log(error)
+        }
+        res.json({ succes: true, response: { comentario } })
 
-//     },
-
-
-//     borrarComentario: async (req, res) => {
-//         let id = req.params.id;
-
-//         let comentario
-
-//         try {
-//             comentario = await Comments.findOneAndDelete({ _id: id })
-//         } catch (error) {
-//             console.log(error)
-//         }
-//         res.json({ succes: true, response: { comentario }, message:"su comentario fue borrado" })
+    },
 
 
-//     },
+    borrarComentario: async (req, res) => {
+        let id = req.params.id;
 
-//     modificarComentario:async(req, res) => {
+        let comentario
+
+        try {
+            comentario = await Comments.findOneAndDelete({ _id: id })
+        } catch (error) {
+            console.log(error)
+        }
+        res.json({ succes: true, response: { comentario }, message:"su comentario fue borrado" })
+
+
+    },
+
+    modificarComentario:async(req, res) => {
        
-//         let id = req.params.id;
-//         console.log(req.body)
-//         let newComments= {comment:req.body.data}
-//         console.log(newComments)
-//         let comentario
+        let id = req.params.id;
+        console.log(req.body)
+        let newComments= {comment:req.body.data}
+        console.log(newComments)
+        let comentario
 
-//         try {
-//             comentario = await Comments.findOneAndUpdate({ _id:id},newComments)
-//         } catch (error) {
-//             console.log(error)
-//         }
-//         res.json({ succes: true, response:{comentario},message:"Su comentario fue modificado "})
+        try {
+            comentario = await Comments.findOneAndUpdate({ _id:id},newComments)
+        } catch (error) {
+            console.log(error)
+        }
+        res.json({ succes: true, response:{comentario},message:"Su comentario fue modificado "})
 
-//     }
-// }
-// module.exports = commentControllers;
+    }
+}
+module.exports = commentControllers;

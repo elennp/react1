@@ -28,28 +28,28 @@ function Navbar() {
   
   return (
 
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor:"#f6e70a "}}>
       <div className="container-fluid">
 
-        <img src={Logo} width="70" />
+        <img src={Logo} width="80" style={{borderRadius:"3em",boxShadow:"5px 3px 5px black",marginLeft:" 2em"}} />
 
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div className="navbar-nav">
-            <LinkRouter to="/" className="nav-link active" aria-current="page">
+          <div className="navbar-nav" style={{height: "50%", paddingLeft:"50%"}}>
+            <LinkRouter to="/" className="nav-link active" style={{color:"black",fontSize:"1.5em"}} aria-current="page">
               Home
             </LinkRouter>
-            <LinkRouter to="/cities" className="nav-link">
+            <LinkRouter to="/cities" className="nav-link" style={{color:"black", fontSize:"1.5em"}}>
 
               Cities
             </LinkRouter>
             {!user?
-              (<div><LinkRouter to= "/form" className="nav-link">SignUp</LinkRouter>
-              <LinkRouter to= "/form" className="nav-link">
+              (<div className="sin" style={{display:"flex",justifyContent:"  space-between"}}><LinkRouter to= "/form" className="nav-link"style={{color:"black", fontSize:"1.5em"}}>SignUp</LinkRouter>
+              <LinkRouter to= "/form" className="nav-link" style={{color:"black",fontSize:"1.5em"}}>
               Signin</LinkRouter></div>
-              ): <button className="nav-link" onClick={() => cerrarSesion()}>SignOut</button>
+              ): <button className="nav-link"  onClick={() => cerrarSesion()}>SignOut</button>
             }
               
                

@@ -1,58 +1,46 @@
 
-
-
-
-.text {
+.texti-c{
     text-align: center;
-    font-weight: 500;
-    font-family: 'fantasy';
-    font-style: italic;
-    color:aliceblue;
     
-
 }
- /* .teim {
+
+
+.texti{
+    align-items: stretch;
+    font-family: fantasy;
+    color: aliceblue;
+    display: flex;
     
-    background:url('../carusel/Travel1.jpg');
-    width: 50%;
-	 height: 300px;
-	 object-fit:none;
-	 background-repeat: no-repeat;
-  background-position:  left;
-  background-size: cover;
+   
+}
+.texti-s{
+    color: aliceblue;
+    padding-top: 10em;
     
-}  */
+}
 .gif{
-    float: right;
-    
-    padding: 10px; 
-    margin: 2em;
-    border: 2px solid black; 
-     width: 250px;
-     height: 200px;
-    
+   display: flex;
+   justify-content: left;
+   padding-left: 5em;
+   padding-top: 1em;
+   
+   
 }
-.text h3 {
-    position: relative; border: 2px ; width: 200px;
-    
-    text-align: center;
-    letter-spacing: 3px;
-    position: relative;
-    word-spacing: 5px;
-    padding: 1em;    
+.gifi{
+  padding-right: 2em;
+  text-shadow: 3px 3px 5px 1px #f6e70a;
+  border-radius: 1em 1em 1em;
+}
+   
+.subti{
+    color: aliceblue;
+    display: flex;
+    padding-top: 3em;
+    padding-left: 5em;
+    padding-right: 5em;
+}   
 
-}
-.text h4 {
-    
-    
-    font-size: x-large; 
-    font-weight: 500;
-    text-align: left;
-    letter-spacing: 4px;
-    word-spacing: 3px; 
-    padding: 2em;
-    position: relative;
-}
+
 
 .slides {
     padding: 0;

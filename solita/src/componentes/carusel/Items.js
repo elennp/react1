@@ -9,8 +9,8 @@ import Image from './Venecia.jpg';
 import Imagen from './Amsterd.jpg';
 import Imgen from './Baires.jpg';
 import Im from '../carusel/Estocolmo.jpg';
-import Iman from '../carusel/Travel1.jpg';
-import Git from '../carusel/water.gif';
+import Iman from '../carusel/Nyorka.jpg';
+import Git from '../carusel/gifn.gif';
 import './items.css';
 
 
@@ -20,16 +20,17 @@ const Items = () => {
   return (
 
     <div >
-      <div className='dale'></div>
-      <div className='text'>
-        <h1>MYTINERARY</h1>
-        <h3>The travel blog that leads you to fulfill your dreams of traveling and discovering the best places in the world</h3>
-        <div className='gif'>
-        <img src={Git} alt= " " />
+      <div className='texti-c'>
+        <div className='texti'>
+          <h1 className='texti-t'>MYTINERARY</h1>
+          <h3 className='texti-s'>The travel blog that leads you to fulfill your dreams of traveling and discovering the best places in the world</h3>
         </div>
-        <div className='teim'></div>
-        <h4>We were born with the dream of offering travelers all our experience and capacity in the area, providing a high quality service and adapting to today's demands.If your desire is to live wonderful moments, trust us and get ready to enjoy unforgettable trips.</h4>
-
+        <div className='gif'>
+          <img src={Git} alt=" " className='gifi' style={{width: "31em",height:" 21em"}} />
+        </div>
+        <div className='subti'>
+          <h4>We were born with the dream of offering travelers all our experience and capacity in the area, providing a high quality service and adapting to today's demands.If your desire is to live wonderful moments, trust us and get ready to enjoy unforgettable trips.</h4>
+        </div>
       </div>
 
       <ul class="slides">
