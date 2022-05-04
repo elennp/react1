@@ -9,7 +9,7 @@ const usersSchema = new mongoose.Schema({
    
      emailVerificado:{type:Boolean,require:true},
      connected: {type: Boolean, require: true},
-     google: {type: Boolean, required:true}
+     google: {type: Boolean, required:true},
     })
 
 const User = mongoose.model("users", usersSchema)

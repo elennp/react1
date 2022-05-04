@@ -25,8 +25,8 @@ function Comments(props) {
 
         }
 
-        await axios.post("https://localhost:4000/api/comment", { dataComents })
-            .then(response => {
+        await axios.post("https://localhost:4000/api/comments", { dataComents })
+            .then(response => 
 
                 swal({
                     title: response.data.mensaje,
@@ -34,16 +34,17 @@ function Comments(props) {
                     buttons: "ok"
                 })
                 // setComment(response.data.response.comentario)
+                   
 
-
-            })
-
-
+            )
+            setReload(!reload)
     }
+
+    
 
     useEffect(() => {
         let id = props.itinerario
-        axios.get(`https://localhost:4000/api/comment/${id} `)
+        axios.get(`https://localhost:4000/api/comments/${id} `)
             .then(response => {
                 setComment(response.data.response.comentario)
 
@@ -54,8 +55,8 @@ function Comments(props) {
         //  console.log(response)
     }, [reload])
 
-    const borrarComentario = (id) => {
-        axios.delete(`https://localhost:4000/api/comment/${id} `)
+    const borrarComentario = async (id) => {
+       await axios.delete(`https://localhost:4000/api/comments/${id} `)
             .then(response => {
                 console.log(response)
                 swal({
@@ -74,10 +75,10 @@ function Comments(props) {
 
     }
 
-    const modificar = (id) => {
+      const modificar = async (id) => {
 
         let data = cambio
-        axios.put(`https://localhost:4000/api/comment/${id} `, { data })
+       await axios.put(`https://localhost:4000/api/comments/${id} `, { data })
             .then(response => {
                 console.log(response)
                 swal({
@@ -89,104 +90,70 @@ function Comments(props) {
 
 
         setReload(!reload)
-    };
     
+        }
 
-
+           
     return (
-        <>
+        
+        <div className="contentComment">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+              COMMENTS
+            </button>
+          </h2>
 
-            <div className="accordion d-grid col-10 mx-4" id="accordionExample">
-
-                <h2 className="accordion-header " id="headingOne">
-                    <button className="accordion-button   "
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne"
-                        aria-expanded="true"
-                        aria-controls="collapseOne"
-                    >
-                        COMMENTS
-                    </button>
-
-                </h2>
-                <br />
-
-                <div
-                    id="collapseOne"
-                    className="accordion-collapse collapse"
-                    aria-labelledby="headingOne"
-                >
-                    {comment?.map(iti =>
-                        <div className="d-flex position-relative mx-3 ">
-
-                          
-                            <h5>{iti.name}</h5>
-                            {iti.user?._id === user?.id ?
-
-
-                                <div className="floating" >
-
-                                    <div>
-                                        <input  onKeyUp={handelChange} className="inputBoton" defaultValue={iti.comment}></input>
-                                    </div>
-
-
-                                    <button type="button" className="btn btn-info mx-3 " onClick={() => borrarComentario(iti._id)} >
-                                        <FaTrashAlt />
-                                    </button>
-                                    <button type="button" className="btn btn-info" onClick={() => modificar(iti._id)}>
-                                        <MdCreate />
-                                    </button>
-
-                                </div>
-
-                                :
-                                <div className="estilo comente ">
-                                    <div style={{ backgroundColor: "#F3E9DD", borderRadius: "0.3em", padding: "2px", marginLeft: "1em", marginTop: "0.3em" }}>{iti.comment}</div>
-                                </div>
-                            }
-
-                        </div>
-
-
-                    )}
-
-                    {/* BODY  */}
-
-                    {user ?
-                        <div className="accordion-body">
-
-
-                            <form onSubmit={submitComment}>
-                                <div className="form-floating">
-                                    <textarea className="form-control" id="floatingTextarea"></textarea> <br />
-                                    <div className="btn-comentario-form">
-
-                                        <button type="submit" className="btn btn-info">
-                                            Send<i className="fas fa-paper-plane"></i>
-                                        </button>
-
-
-                                    </div>
-
-                                </div>
-                            </form>
-                        </div>
-
-                        :
-                        <div className="floating" >
-                            <p style={{ backgroundColor: "rgba(201, 215, 219, 0.212)", borderRadius: "1em", width: "100%", height: "100%", marginTop: "1em" }} >You must be logged in to comment</p>
-                        </div>
-
-                    }
+          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+            {comment?.map(iti =>
+              <div class="accordion-body">
+                <div className="AquiVaEstilo mb-2" >
+                  <div className="commentUserImg">
+                    <img></img>
+                    <p>{iti.user.name}</p>
+                  </div>
+                  {user?.id===iti.user._id?
+                    <div>
+                      <div className="commentText">
+                        {/* event entra como parámetro del onChange y pasa como parámetro a la función y pasa hacia arriba */}
+                        <input onKeyUp={handelChange} defaultValue={iti.comment} className="styleInput"></input>
+                      </div>
+                      <div className="btnComment">
+                        {/* captura el comentario por cada boton q se genera se pasa el id a la funcion y la funcion pasa el parametro al controlador y este la ejecuta */}
+                        <button className="btn btn-warning mx-2" onClick={() => borrarComentario(iti._id)}><FaTrashAlt /></button>
+                        <button className="btn btn-warning" onClick={() => modificar(iti._id)}><MdCreate /></button>
+                      </div>
+                    </div>:
+                    <div className="commentText">
+                   
+                    <div className="styleInput">{iti.comment}</div>
+                  </div>
+                  }
                 </div>
+
+
+              </div>
+            )}
+            {user?
+            <div>
+            <form onSubmit={submitComment} className="p-3">
+              <textarea name="textarea" placeholder="Write us..." className="itineraryTextarea">
+
+              </textarea>
+              <div className="btn-comentario-form">
+                <button type="submit" className="btn btn-warning">Send</button>
+              </div>
+            </form>
             </div>
-        </>
+            :
+            <h6 className="p-3">You must login to comment</h6>
+            }
+          </div>
+        </div>
+      </div>
+    )
+    }
 
-    );
-                }        
+ 
 
-
-  
-    export default Comments
+                        export default Comments;

@@ -4,7 +4,7 @@ body {
   /* background: rgb(2,0,36); */
 /* background color: #000; */
   /* font-family: 'Droid Serif', serif; */
-  background-color: #1E1E1E;
+  background-color: #323131;
 }
 .contenedor {
   padding: 4em;
@@ -19,7 +19,7 @@ margin-bottom: 3em;
   height: 500px;
   position: relative;
   font-family: 'Pacifico', cursive;
-  color:#fff;
+  color:rgb(251, 251, 251);
   top: 30%;
   z-index: 1;
   right: 0;  
@@ -59,7 +59,7 @@ color:#f6e70a;
   z-index: 15;
 }
 .blog-card:hover{
-    box-shadow: 0px 18px 20px -9px #f82d2d;
+    box-shadow: 0px 18px 20px -9px #f6e70a;
 }
 .blog-card:hover .card-info {
   opacity: 1;
@@ -110,7 +110,7 @@ h3:after {
   height: 2px;
   margin: 20px auto;
   border: 0;
-  background: #f82d2d;
+  background: #f6e70a;
   transition:all 0.2s
 }
 
@@ -126,12 +126,12 @@ h3:after {
 .intro {
   width: 170px;
   margin: 0 auto;
-  color: #f82d2d;
+  color: #f6e70a;
   font-style: italic;
   line-height: 18px;
 }
 .intro .ruta,a{
-  color: #f82d2d
+  color: #f6e70a
 }
 .intro .ruta,a:hover{
   text-decoration:underline
@@ -157,13 +157,13 @@ h3:after {
   width:100px;
   margin:15px auto;
   background:rgb(10, 10, 10);
-  color:#f82d2d;
+  color:#f6e70a;
   padding:3px 10px;
   border-radius:2px;
   font-size:0.8em
 }
 .card-info .ruta:hover{
-  background: #f82d2d;
+  background: #f6e70a;
   color:#fff;
 }
 .card-info .ruta:hover span{
