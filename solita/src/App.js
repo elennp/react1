@@ -72,7 +72,7 @@ return (
    <Route path='/formu' element={<Formu/>} />
   
    </Routes>
-   <Footer/>
+    <Footer/> 
    </BrowserRouter>
 
 ) ;

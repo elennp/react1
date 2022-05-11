@@ -17,34 +17,35 @@ function Comments(props) {
 
     const submitComment = async (event) => {
         event.preventDefault();
-
+        console.log(props)
         const dataComents = {
-            itinerario: props.itinerario,
+            itinerario: props.itinerarios,
             mensaje: event.target[0].value,
             user: user.id,
 
         }
-
-        await axios.post("https://localhost:4000/api/comments", { dataComents })
+         
+        await axios.post("http://localhost:4000/api/comments", { dataComents })
             .then(response => 
-
-                swal({
-                    title: response.data.mensaje,
-                    icon: "success",
+              
+                 swal({
+                     title: response.data.message,
+                     icon: "success",
                     buttons: "ok"
                 })
                 // setComment(response.data.response.comentario)
-                   
+                  
 
             )
-            setReload(!reload)
+            setReload(!reload) 
+           
     }
 
     
 
     useEffect(() => {
-        let id = props.itinerario
-        axios.get(`https://localhost:4000/api/comments/${id} `)
+        let id = props.itinerarios
+        axios.get(`http://localhost:4000/api/comments/${id} `)
             .then(response => {
                 setComment(response.data.response.comentario)
 
@@ -52,15 +53,15 @@ function Comments(props) {
             })
 
 
-        //  console.log(response)
+          // console.log(response)
     }, [reload])
 
     const borrarComentario = async (id) => {
-       await axios.delete(`https://localhost:4000/api/comments/${id} `)
+       await axios.delete(`http://localhost:4000/api/comments/${id} `)
             .then(response => {
                 console.log(response)
                 swal({
-                    title: response.data.mensaje,
+                    title: response.data.message,
                     icon: "success",
                     buttons: "ok"
                 })
@@ -78,11 +79,11 @@ function Comments(props) {
       const modificar = async (id) => {
 
         let data = cambio
-       await axios.put(`https://localhost:4000/api/comments/${id} `, { data })
+       await axios.put(`http://localhost:4000/api/comments/${id} `, { data })
             .then(response => {
                 console.log(response)
                 swal({
-                    title: response.data.mensaje,
+                    title: response.data.message,
                     icon: "success",
                     buttons: "ok"
                 })
@@ -109,7 +110,7 @@ function Comments(props) {
               <div class="accordion-body">
                 <div className="AquiVaEstilo mb-2" >
                   <div className="commentUserImg">
-                    <img></img>
+                   
                     <p>{iti.user.name}</p>
                   </div>
                   {user?.id===iti.user._id?

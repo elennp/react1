@@ -1,16 +1,29 @@
-import React  from 'react'
+import React from 'react'
+import Search from '../buscador/Search';
 
 import Cities from '../cities/Cities';
+import './citiespadre.css';
 
-function CitiesPadre () {
+function CitiesPadre() {
      return (
-    <div >
-     
-     
-     <Cities/>
-    
-     </div>
 
+          <>
+
+              <div className='busca'>
+               <div className='bus'>
+                 <p>Don't leave for tomorrow the trip you can do today... select your itinerary</p>
+                 </div>
+                    <div className='bus1'>
+                    <Search />
+                    </div>
+               </div>
+
+               
+                    <Cities />
+
+
+               
+          </>
      );
 
 }

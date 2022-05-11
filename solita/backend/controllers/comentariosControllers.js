@@ -8,8 +8,8 @@ const commentControllers = {
 
     cargarComentarios: async (req, res) => {
 
-        const { itinerario, mensaje, user } = req.body.dataComments;
-        console.log(req.body.dataComments)
+        const { itinerario, mensaje, user } = req.body.dataComents;
+        console.log(req.body.dataComents)
 
         new Comments({
 
@@ -18,17 +18,20 @@ const commentControllers = {
             comment: mensaje
         }).save()
 
-        let comentario
+        let  comentario
        
         try {
-            comentario = await Comments.find({ itinerario: itinerario }).populate("user")
-        } catch (error) {
+            
+            comentario = await Comments.find({ itinerario: itinerario },{new:true}).populate("user")
+            console.log(comentario)
+            res.json({ succes: true, response: {comentario }, message:"Your message has been sent"})
+        }catch (error) {
             console.log(error)
         }
-        res.json({ succes: true, response: {comentario }, message:"Your message has been sent"})
+       
 
     },
-    obtenerComentarios: async (req, res) => {
+    obtenerComentarios: async (req, res) =>{
         console.log(req.body)
         let id = req.params.id;
 

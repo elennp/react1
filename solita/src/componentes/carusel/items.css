@@ -36,8 +36,9 @@
     color: aliceblue;
     display: flex;
     padding-top: 3em;
-    padding-left: 5em;
-    padding-right: 5em;
+    padding-left: 7em;
+    padding-right: 7em;
+    text-align:center ;
 }   
 
 

@@ -12,7 +12,7 @@ import Im from '../carusel/Estocolmo.jpg';
 import Iman from '../carusel/Nyorka.jpg';
 import Git from '../carusel/gifn.gif';
 import './items.css';
-
+import Fondo from '../carusel/fond.png';
 
 
 
@@ -28,6 +28,7 @@ const Items = () => {
         <div className='gif'>
           <img src={Git} alt=" " className='gifi' style={{width: "31em",height:" 21em"}} />
         </div>
+        
         <div className='subti'>
           <h4>We were born with the dream of offering travelers all our experience and capacity in the area, providing a high quality service and adapting to today's demands.If your desire is to live wonderful moments, trust us and get ready to enjoy unforgettable trips.</h4>
         </div>

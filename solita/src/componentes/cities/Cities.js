@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import '../cities/Cities.css';
 import Brujas from '../cities/Brujas1.jpg';
 import { Link as LinkRouter } from "react-router-dom";
-
+import Search from '../buscador/Search'
 
 function Cities() {
   // console.log(props.cities);
@@ -17,7 +17,10 @@ function Cities() {
 
   return (
      <>
-     
+     <div className='te'>
+          <h1 className='te-t'>MYTINERARY</h1>
+        </div>
+        
       
         <div className='contenedor'>
         {  cities.map((data)=>(
