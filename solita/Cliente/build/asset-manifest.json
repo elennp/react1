@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d8a0bfe6.css",
+    "main.js": "/static/js/main.2641e853.js",
+    "static/js/787.8b2aaa31.chunk.js": "/static/js/787.8b2aaa31.chunk.js",
+    "static/media/gifn.gif": "/static/media/gifn.59a6fa6d10d32672e07e.gif",
+    "static/media/Asia1.jpg": "/static/media/Asia1.77b49e5cf69ef359c305.jpg",
+    "static/media/Africa2.jpg": "/static/media/Africa2.77b0d96b5cb6a94b3300.jpg",
+    "static/media/Mc.jpg": "/static/media/Mc.d548a62f09040b27f2b6.jpg",
+    "static/media/Venecia.jpg": "/static/media/Venecia.7f4c3be6c4d0fe3365e5.jpg",
+    "static/media/Nyorka.jpg": "/static/media/Nyorka.a42ae58e906787f15d11.jpg",
+    "static/media/Baires.jpg": "/static/media/Baires.fe6fc62a8f3e699e9a27.jpg",
+    "static/media/buen.gif": "/static/media/buen.c26a8186c43d6364cd41.gif",
+    "static/media/logo.png": "/static/media/logo.037898f75b26ba3351a0.png",
+    "static/media/Europa1.jpg": "/static/media/Europa1.442006330bec4824b58f.jpg",
+    "static/media/Brujas1.jpg": "/static/media/Brujas1.89cd7725a5d3c48a8e78.jpg",
+    "static/media/Antartica5.jpg": "/static/media/Antartica5.16ffe3009a2969e16e67.jpg",
+    "static/media/Vancouver.jpg": "/static/media/Vancouver.e73b7b7b8fe4c861a1a5.jpg",
+    "static/media/Estocolmo.jpg": "/static/media/Estocolmo.aa1ebf43a5325ddd0f3b.jpg",
+    "static/media/America1.jpg": "/static/media/America1.6ef95838c47733bb8b49.jpg",
+    "static/media/Amsterd.jpg": "/static/media/Amsterd.96f8acdb93a8857bb42c.jpg",
+    "static/media/America7.jpg": "/static/media/America7.7f8b18e5c01906a399ea.jpg",
+    "static/media/fond.png": "/static/media/fond.48710432b75c8b429a49.png",
+    "static/media/logo.jpg": "/static/media/logo.b080d605dae5b3583043.jpg",
+    "index.html": "/index.html",
+    "main.d8a0bfe6.css.map": "/static/css/main.d8a0bfe6.css.map",
+    "main.2641e853.js.map": "/static/js/main.2641e853.js.map",
+    "787.8b2aaa31.chunk.js.map": "/static/js/787.8b2aaa31.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d8a0bfe6.css",
+    "static/js/main.2641e853.js"
+  ]
+}
